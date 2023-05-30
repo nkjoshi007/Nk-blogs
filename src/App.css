@@ -1,7 +1,10 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 .App {
   text-align: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -42,13 +45,10 @@
   align-items: center;
   color: white;
   list-style: none;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .nav-list li:hover{
-  cursor: pointer;
+cursor: pointer;
 color: rgb(160, 156, 156);
-}
-h{
-  display: inline-block;
-  background-color: aliceblue;
 }
