@@ -43,12 +43,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: rgb(20, 15, 83);
   list-style: none;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .nav-list li:hover{
 cursor: pointer;
-color: rgb(160, 156, 156);
+color: rgb(142, 120, 203);
+}
+nav{
+  background-image: linear-gradient(to right,rgb(67, 151, 162),white);
+}
+.navbar{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+h1{
+  font-size: 2rem;
+
 }
