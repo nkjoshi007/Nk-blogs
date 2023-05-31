@@ -1,7 +1,8 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
-export const Posts = createAsyncThunk(
-    "Posts/getPosts",async()=>{
+
+export const Post = createAsyncThunk(
+    "Post/getPost",async(arg, { rejectWithValue })=>{
         try{
             const data = await axios.get(
                 "https://dummyjson.com/products"
@@ -10,16 +11,36 @@ export const Posts = createAsyncThunk(
             return data;
         }
         catch(error){
-            console.log(error)
+            rejectWithValue(error.response.data)
         }
     }
 )
-const Postslice = createSlice({
-    name:"Posts",
-    initialstate:{
+const PostSlice = createSlice({
+    name:"Post",
+    initialState:{
         data:[],
-        dataGet:false,
-        message:""
+        isSuccess: false,
+    message: "",
+    loading: false,
     },
-    reducers:{}
-})
+    reducers:{},
+    extraReducers:{
+        [Post.pending]:(state,{payload})=>{
+            console.log("pending",payload);
+            state.loading = true;
+        },
+        [Post.fulfilled]:(state,{payload})=>{
+            console.log("Fulfilled",payload);
+            state.loading = false;
+            state.data = payload.data.products;
+            state.isSuccess = true;
+        },
+        [Post.rejected]:(state,{payload})=>{
+            console.log("Rejected",payload);
+            state.message = payload;
+      state.loading = false;
+      state.isSuccess = false;
+        }
+    } 
+});
+export default PostSlice;
