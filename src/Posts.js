@@ -5,7 +5,8 @@ export const Post = createAsyncThunk(
     "Post/getPost",async(arg, { rejectWithValue })=>{
         try{
             const data = await axios.get(
-                "https://dummyjson.com/products"
+                // "https://dummyjson.com/products"
+                "https://services.isrostats.in/api/launches"
             );
             console.log("data of Api:",data)
             return data;
@@ -32,7 +33,7 @@ const PostSlice = createSlice({
         [Post.fulfilled]:(state,{payload})=>{
             console.log("Fulfilled",payload);
             state.loading = false;
-            state.data = payload.data.products;
+            state.data = payload.data;
             state.isSuccess = true;
         },
         [Post.rejected]:(state,{payload})=>{
