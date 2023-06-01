@@ -49,6 +49,7 @@ body{
   color: rgb(20, 15, 83);
   list-style: none;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-top: 1rem;
 }
 
 .nav-list li:hover{
@@ -65,5 +66,5 @@ nav{
 }
 h1{
   font-size: 2rem;
-
+  font-family: 'Playfair Display', serif;
 }
